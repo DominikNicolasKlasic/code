@@ -24,10 +24,7 @@ public class SaleContainer {
         sales.add(s);
         System.out.println("The sale: " + s + " has been created.");
     }
-    
-    public void addItem() {
-    }
-    
+
     public void findSaleByOrderId(int orderId) {
     	int match = 0;
 

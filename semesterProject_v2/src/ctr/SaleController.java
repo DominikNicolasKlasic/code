@@ -4,8 +4,7 @@ import model.*;
 
 public class SaleController {
 	private SaleContainer saleContainer;
-    private Sale sale;
-    private Sale currentSale;
+    private Sale currentSale, s;
     private Person p;
 
     public SaleController() {
@@ -13,30 +12,26 @@ public class SaleController {
 
     }
 
-    public void createNewSale(int workerId) {
+    public void createNewSale(int orderId,int workerId) {
         if(p instanceof Worker) {
             Worker w = (Worker)p;
-            saleContainer.createNewSale(w.getId());
-            currentSale = sale;
+            saleContainer.createNewSale(orderId, w.getId());
+            currentSale = s;
             System.out.println("The sale was created");
         }
 
     }
     
-    public void addItem(String barcode) {
-       
+    public void addItem(Product p) {
+    	currentSale.addItem(p);
     }
 
-    public void addItemWithDiscount(String barcode, double discount) {
-        
+    public void addItemWithDiscount(Product p, double discount) {
+        currentSale.addItemWithDiscount(p, discount);
     }
 
-    public void printTotal() {
-
-    }
-
-    public void printCurrentOrderId() {
-
+    public void printTotalPrice() {
+    	currentSale.getTotalPrice();
     }
 
     public boolean isActive() {
@@ -48,7 +43,7 @@ public class SaleController {
         }
     }
 
-    public void closeSale() {
+    public void enddSale() {
         currentSale.endSale();
     }
 }

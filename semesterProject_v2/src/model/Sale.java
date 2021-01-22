@@ -8,6 +8,7 @@ public class Sale {
 	private double price;
 	private int workerId;
 	private boolean active;
+
 	
 	public Sale(int orderId, int workerId) {
 		cart = new ArrayList<>();
@@ -23,11 +24,11 @@ public class Sale {
 		if(isActive()) {
 			if(alreadyExists) {
 				cart.get(i).getAmountOfItems();
-				System.out.println("The cart already exists. And consists of " + cart.get(i).getAmountOfItems() + " items.");
+				System.out.println("The shopping cart already exists. And consists of " + cart.get(i).getAmountOfItems() + " items.");
 			} else {
 				ShoppingCart sc = new ShoppingCart();
 				cart.add(sc);
-				System.out.println("New shopping cart has been created.");
+				System.out.println("The shopping cart didn't exist, new shopping cart has been created.");
 			}
 		} else {
 			System.out.println("Something went wrong.");
@@ -41,7 +42,7 @@ public class Sale {
 			if(alreadyExists) {
 				cart.get(i).getAmountOfItems();
 				cart.get(i).setDiscountPrice(discount);
-				System.out.println("The shopping cart already exists.")
+				System.out.println("The shopping cart already exists.");
 			} else {
 				ShoppingCart sc = new ShoppingCart();
 				cart.add(sc);
@@ -54,16 +55,21 @@ public class Sale {
 		}
 	}
 	
-	public void printTotalPrice() {
+	public double getTotalPrice() {
         double  tp = 0;
         if(cart.size() != 0) {
             for(ShoppingCart sc : cart) {
-                tp += sc.getCartPrice();
+                return tp += sc.getCartPrice();
             }
         }
         price = tp;
-        System.out.println("The price is: " + price);
+        return price;
     }
+	
+	public int getSize() {
+		int i = 0;
+		return cart.get(i).getAmountOfItems();
+	}
 	
 	public void endSale() {
         active = false;

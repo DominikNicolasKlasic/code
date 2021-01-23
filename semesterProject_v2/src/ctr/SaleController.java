@@ -22,12 +22,16 @@ public class SaleController {
 
     }
     
-    public void addItem(Product p) {
-    	currentSale.addItem(p);
+    public void findSaleInfo(int orderId) {
+    	saleContainer.findSaleByOrderId(orderId);
+    }
+    
+    public void addItem(int barcode) {
+    	currentSale.addItem(barcode);
     }
 
-    public void addItemWithDiscount(Product p, double discount) {
-        currentSale.addItemWithDiscount(p, discount);
+    public void addItemWithDiscount(int barcode, double discount) {
+        currentSale.addItemWithDiscount(barcode, discount);
     }
 
     public void printTotalPrice() {
@@ -43,7 +47,7 @@ public class SaleController {
         }
     }
 
-    public void enddSale() {
+    public void endSale() {
         currentSale.endSale();
     }
 }

@@ -2,14 +2,19 @@ package ui;
 
 import java.util.Scanner;
 import ctr.PersonController;
+import ctr.SaleController;
 
 public class MainMenu {
 	private MemberStaffMenu memberStaffMenu;
+	private ManagementMenu managementMenu;
 	private PersonController personController;
+	private SaleController saleController;
 	
 	public MainMenu() {
         memberStaffMenu = new MemberStaffMenu();
+        managementMenu = new ManagementMenu();
         personController = new PersonController();
+        saleController = new SaleController();
     }
 	
 	public void start() {
@@ -26,7 +31,8 @@ public class MainMenu {
                     memberStaffMenu.start();
                 break;
                 case 2:
-
+                	managementMenu.init(saleController);
+                	managementMenu.start();
                 break;
                 case 0:
                 System.out.println("Goodbye.");
@@ -40,7 +46,7 @@ public class MainMenu {
     }
 
     private int writeMainMenu() {
-        Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
         System.out.println("****** Main menu ******");
         System.out.println(" (1) Member Staff Menu");
         System.out.println(" (2) Management Menu");

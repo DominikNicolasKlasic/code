@@ -18,7 +18,7 @@ public class Sale {
 		active = true;
 	}
 	
-	public void addItem(Product p) {
+	public void addItem(int barcode) {
 		boolean alreadyExists = false;
 		int i = 0;
 		if(isActive()) {
@@ -35,7 +35,7 @@ public class Sale {
 		}
 	}
 	
-	public void addItemWithDiscount(Product p, double discount) {
+	public void addItemWithDiscount(int barcode, double discount) {
 		boolean alreadyExists = false;
 		int i = 0;
 		if(isActive()) {

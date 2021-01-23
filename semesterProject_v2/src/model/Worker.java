@@ -25,4 +25,12 @@ public class Worker extends Person {
 	public void setLeader(boolean manager) {
 		this.manager = manager;
 	}
+
+	public int getWorkerId() {
+		return workerId;
+	}
+
+	public void setWorkerId(int workerId) {
+		this.workerId = workerId;
+	}
 }
